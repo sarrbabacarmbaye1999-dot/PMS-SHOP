@@ -18,3 +18,196 @@
     color: white;
     padding: 25px;
 
+header p {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+.produit {
+    width: 300px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.produit h2 {
+    margin-bottom : 15px;
+}
+
+.produit p {
+    margin: 10px 0 20px ;
+}
+
+.produit button {
+    background-color: #111;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.produit button:hover {
+    background-color: #333;
+}
+
+.produit button {
+    display: block;
+    margin: 15px auto 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 30px 15px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.produit {
+    background: white;
+    width: 300px;
+    margin: 25px auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+.produit img {
+    width: 100%;
+    max-height: 280px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.produit h2 {
+    margin: 15px 0 18px;
+}
+
+.produit p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.produit select,
+.produit input {
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+}
+
+.produit button {
+    display: block;
+    margin: 15px auto 0;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.produits {
+    display: flex;
+    justify-content: center;
+    gap: 3Opx;
+    flex-wrap: wrap;
+
+}
+
+.produit {
+    background:white ;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0,1);
+    width: 280px;
+}
+
+.produit img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+     </style>
+     </head>
+<body>
+
+    <h1>PMS SHOP</h1>
+
+    <p>Votre style, votre choix, votre commande en quelque clics.</p>
+  <div id="panier">
+    <h2>🛒Mon panier</h2>
+    <div id="liste-panier"></div>
+    <p id="total">Total : 0 FCFA</p>
+  </div>
+
+  <div class="produits">
+
+ <div class="produit">
+      <img src="tshirt1.jfif" alt="T-shirt premium">
+    <h2>T-shirt premium</h2>
+    <p>Prix : 10 000 FCFA</p>
+  <label for="taiile1">Taille :</label>
+  <select id="taille1">
+       <option value="S">S</option>
+       <option value="M">M</option>
+       <option value="L">L</option>
+       <option value="XL">XL</option>
+  </select>
+
+  <label for="quantite1">Quantité :</label>
+  <input type="number" id="quantite1" value="1" min="1">
+    <button onclick="commander('T-shirt premium', 10000, document.getElementById('taille1').value, document.getElementById('quantite1').value)" >Commander</button>
+ </div>  
+ 
+ <div class="produit">
+      <img src="tshirt2.jfif" alt="Deuxième T-shirt">
+      <h2>T-shirt 2</h2>
+      <p>Prix : 10 000 FCFA</p>
+  <label for="taille2">Taille :</label>
+  <select id="taille2">
+       <option value="S">S</option>
+       <option value="M">M</option>
+       <option value="L">L</option>
+       <option value="XL">XL</option>
+  </select>
+  <label for="quantite2">Quantité</label>
+  <input type="number" id="quantite2" value="1" min="1"
+
+  <br><br>
+
+    <button onclick="commander('T-shirt 2', 10000, document.getElementById('taille2').value, document.getElementById('quantite2').value)">Commander</button>
+ </div>
+ <script>
+  function commander(nom, prix, taille, quantite) {
+    let message= "Bonjour je voudrais commander " + nom + ",taille" + taille + ",quantité " + quantite + ",prix" + prix + " FCFA";
+
+    window.open("https://wa.me/221778644533?text=" + encodeURIComponent(message), "_blank");
+    
+  }
+
+  let total = 0;
+  function mettreAJourPanier(nom, prix, taille, quantite) {
+    total += prix * quantite;
+    document.getElementById("liste-panier").innerHTML +=
+        "<p>👕  " + nom + "<br>Taille : " + taille + " -Quantité : " + quantité + "<br>Prix : " + (prix * quantite) + " FCFA</p>";
+    document.getElementById("total").textContent = "Total : " + total +" FCFA";
+  }
+ </script>
+
+</body>
+</html>
+
